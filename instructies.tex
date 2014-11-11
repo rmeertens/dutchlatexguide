@@ -45,7 +45,15 @@ Je bent nu in de ShareLaTeX Integrated Development Environment. Volg de tour om 
 \end{itemize}
 
 \section{Plaatjes}
-Wanneer je een plaatje wil toevoegen gebruik je het volgende commando: \\
+Wanneer je een plaatje toe wilt voegen moet je eerst bovenaan je document, onder de andere usepackage commando's, het volgende neerzetten:
+\begin{verbbox}
+\usepackage{graphicx}
+\end{verbbox}
+\theverbbox
+
+Op shareLatex kan je plaatjes uploaden door linksboven op het menu op de knop 'upload' te klikken. 
+
+Wanneer je vervolgens in je tekst dit plaatje wil toevoegen gebruik je het volgende commando: \\
 \begin{verbbox}
 \includegraphics[variabele1 = waarde1... variabelen = waarden]{naam}
 \end{verbbox}
@@ -54,20 +62,13 @@ Wanneer je een plaatje wil toevoegen gebruik je het volgende commando: \\
 Waar alles tussen de []-haakjes optioneel is, en de naam de naam van het plaatje \emph{zonder} extensie. Als je plaatje te groot is, kan je als een optionele variabele width of height toevoegen. Width kan meerdere types aan: cm, pt, en px, bijvoorbeeld. Er zijn nog meer variabelen die je kan aanpassen, maar die weet google wel voor je.
 
 
-(Voordat je een plaatje kan gebruiken, moet je hem uploaden. Dit kan door links, boven de bestandenlijst, op +New te drukken.)
-
 Waar moet je dit commando neerzetten? Dat ligt eraan waar je het plaatje wilt hebben (duh). Als je hem boven de titel wilt, moet je hem tussen \verb| \begin{document}| en \verb|\maketitle| zetten. Als je jouw kunstwerk ergens anders wilt hebben, kan je hem bijvoorbeeld in section Introduction neerzetten. 
 
 
-Je kan beter plaatjes toevoegen door het volgende aan het begin van je document te zetten:\\
-\begin{verbbox}
-\usepackage{graphicx}
-\end{verbbox}
-\theverbbox
 
 En vervolgens een figure aan te maken waar je plaatje in staat:\\
 \begin{verbbox}
-\begin{figure}[p]
+  \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{name}
     \caption{Awesome Image}
@@ -76,7 +77,9 @@ En vervolgens een figure aan te maken waar je plaatje in staat:\\
 \end{verbbox}
 \theverbbox
 
-Op deze manier kan je ook captions toevoegen en labels toevoegen (zodat je later makkelijk naar dit plaatje kan verwijzen). 
+De h achter begin figure staat voor 'here', hij plaatst hem dan ongeveer op die plek. Je kan de h ook vervangen door de t (voor de top van de pagina), de b (voor onderaan de pagina, of de p (voor op een aparte pagina). 
+
+Met het label kan je later makkelijk verwijzen naar het plaatje, dit zien we terug in Sectie~\ref{sec:verwijzingen}. 
 
 \section{Bulletpoints}
 Nu we het toch over bulletpoints hebben: hoe maak je die in \LaTeX? Zo:
@@ -92,14 +95,13 @@ Nu we het toch over bulletpoints hebben: hoe maak je die in \LaTeX? Zo:
 Wil je nummertjes? Gebruik dan enumerate:
 
 \begin{verbbox}
-\begin{enumerate}[style]
+\begin{enumerate}
 \item item1 ... 
 \item itemn
 \end{enumerate}
 \end{verbbox}
 \theverbbox
 
-Waar style vervangen kan worden door A, a, I, i en 1 voor de respectievelijke manieren van tellen, of kan worden weggelaten (wat altijd kan met \verb|[]|-variabelen in \LaTeX).
 
 \section{Tabellen}
 Iets wat niet kan ontbreken aan een document zijn tabellen. Als je geen tabel in je document hebt, heb je iets fout gedaan. Het is even wennen om ze toe te voegen aan \LaTeX, maar als het eenmaal lukt, wil je ze ook overal aan toevoegen. Je maakt ze zo:
@@ -137,11 +139,24 @@ Er zijn nog allemaal dingen die je zelf kan aanpassen aan je CV, die ik niet heb
 
 
 
+\section{Verwijzingen}
+\label{sec:verwijzingen}
+Tijdens het schrijven wil je vaak verwijzen naar andere plekken in je document (i.e. een plaatje, een tabel of een sectie). Dit doe je door elk plaatje, sectie en tabel een label te geven. Voor een sectie doe je dit op deze manier: 
+\begin{verbbox}
+\section{Speciale sectie}
+\label{sec:speciale-sectie}
+\end{verbbox}
+\theverbbox
+
+Hier kan je vervolgens op de volgende manier naar verwijzen: 
+
+\begin{verbbox}
+Zie hiervoor Sectie \ref{sec:speciale-sectie}. 
+\end{verbbox}
+\theverbbox
+
+Het is gewoonte om in latex verwijzingen die verwijzen naar een sectie een label te geven wat begint met sec: , plaatjes een label te geven wat begint met fig:, en tabellen een label te geven wat begint met tab: . 
 \section{Conclusie}
 Dat was het voor deze workshop. Je kan nog veel meer te leren door zelf dingen te proberen en vooral veel te Googlen! Als je nog dingen wilt weten kan je altijd een assistent vragen (als je nog bij de workshop bent) of mij contacteren. Ik hoop dat je veel profijt hebt aan het beheersen van \LaTeX.
 
-\section{Handige tips}
-\begin{itemize}
-\item ShareLaTeX is erg fijn
-\end{itemize}
 \end{document}
